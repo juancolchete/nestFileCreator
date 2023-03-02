@@ -5,6 +5,46 @@ import { basename } from 'path';
 
 export function activate(context: ExtensionContext) {
 
+	let disposableAllCommand = commands.registerCommand('extension.GenerateAll', (resource) => {
+		if (workspace === undefined) {
+			return window.showErrorMessage('Please select a workspace first');
+		}
+		else {
+			window.showInputBox({
+				placeHolder: "Please enter Service name",
+			})
+				.then<any>((input) => {
+					if (input === undefined) { return; }
+					if (!invalidFileNames.test(input)) {
+						createFile({
+							name: input,
+							type: 'service',
+							associatedArray: 'providers',
+							uri: resource,
+							fullName: input.toLowerCase() + `.service.ts`
+						});
+						createFile({
+							name: input,
+							type: 'module',
+							associatedArray: 'providers',
+							uri: resource,
+							fullName: input.toLowerCase() + `.module.ts`
+						});
+						return createFile({
+							name: input,
+							type: 'controller',
+							associatedArray: 'providers',
+							uri: resource,
+							fullName: input.toLowerCase() + `.controllers.ts`
+						});
+					}
+					else {
+						return window.showErrorMessage('Invalid filename');
+					}
+				});
+		}
+	});
+
 	let disposableModuleCommand = commands.registerCommand('extension.GenerateModule', (resource: Uri) => {
 
 		if (workspace === undefined) {
@@ -358,7 +398,8 @@ export function activate(context: ExtensionContext) {
 		disposableGenerateGatewayCommand,
 		disposableGenerateRedisAdapterCommand,
 		disposableTransportCommand,
-		disposableWebPackCommand
+		disposableWebPackCommand,
+		disposableAllCommand
 	);
 }
 

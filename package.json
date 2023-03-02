@@ -1,18 +1,18 @@
 {
-	"name": "nestjs-files",
-	"publisher": "AbhijoyBasak",
-	"displayName": "NestJS Files",
+	"name": "nestFileCreator",
+	"publisher": "juancolchete",
+	"displayName": "nestFileCreator",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SpartanX1/nestjs-files"
+		"url": "https://github.com/juancolchete/nestFileCreator"
 	},
 	"bugs": {
-		"url": "https://github.com/SpartanX1/nestjs-files/issues",
-		"email": "basak.abhijoy@gmail.com"
+		"url": "https://github.com/juancolchete/nestFileCreator/issues",
+		"email": "juancolchete@gmail.com"
 	},
 	"description": "Quickly create NestJS Files",
 	"icon": "images/icon.png",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
@@ -21,6 +21,7 @@
 		"Snippets"
 	],
 	"activationEvents": [
+		"onCommand:extension.GenerateAll",
 		"onCommand:extension.GenerateModule",
 		"onCommand:extension.GenerateService",
 		"onCommand:extension.GenerateController",
@@ -40,6 +41,10 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
+			{
+				"command": "extension.GenerateAll",
+				"title": "NestJS - Generate All"
+			},
 			{
 				"command": "extension.GenerateModule",
 				"title": "NestJS - Generate Module"
@@ -103,6 +108,11 @@
 		],
 		"menus": {
 			"explorer/context": [
+				{
+					"command": "extension.GenerateAll",
+					"when": "explorerResourceIsFolder",
+					"group": "2_workspace"
+				},
 				{
 					"command": "extension.GenerateModule",
 					"when": "explorerResourceIsFolder",
