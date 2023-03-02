@@ -12,7 +12,7 @@
 	},
 	"description": "Quickly create NestJS Files",
 	"icon": "images/icon.png",
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
@@ -125,66 +125,6 @@
 				},
 				{
 					"command": "extension.GenerateController",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateException",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateMiddleware",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateInterceptor",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GeneratePipe",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateGuard",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateDecorator",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateExceptionFilter",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateUnitTest",
-					"when": "!explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateGateway",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateRedisAdapter",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateTransport",
-					"when": "explorerResourceIsFolder",
-					"group": "2_workspace"
-				},
-				{
-					"command": "extension.GenerateWebpack",
 					"when": "explorerResourceIsFolder",
 					"group": "2_workspace"
 				}
