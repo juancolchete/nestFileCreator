@@ -23,19 +23,19 @@ export function activate(context: ExtensionContext) {
 							uri: resource,
 							fullName: input.toLowerCase() + `.service.ts`
 						});
-						createFile({
-							name: input,
-							type: 'module',
-							associatedArray: 'providers',
-							uri: resource,
-							fullName: input.toLowerCase() + `.module.ts`
-						});
-						return createFile({
+						 createFile({
 							name: input,
 							type: 'controller',
 							associatedArray: 'providers',
 							uri: resource,
 							fullName: input.toLowerCase() + `.controllers.ts`
+						});
+						return createFile({
+							name: input,
+							type: 'module',
+							associatedArray: 'providers',
+							uri: resource,
+							fullName: input.toLowerCase() + `.module.ts`
 						});
 					}
 					else {
